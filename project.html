@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>My Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+   
+</head>
+
+<body>
+
+    <header>
+        <a href="home.html" class="logo">Portfolio</a>
+        <nav>
+          <a href="home.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="project.html" class="active">Projects</a>
+        </nav>
+    </header>
+
+    <div class="page-wrapper">
+        <main class="main-wrapper">
+            <section class="section">
+                <div class="container is-slider">
+                    <div class="slider_wrap">
+
+                        <!-- Left Slider (Text Content) -->
+                        <div class="slider_left">
+                            <div class="swiper is-content">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="slider_info-top">
+                                            <p class="slider_tagline">Projects</p>
+                                            <div class="slider_title">
+                                                <p class="slider_title-text">About Me</p>
+                                            </div>
+                                        </div>
+                                        <div class="slider_info-middle">
+                                            <p class="slider_info-text">This is me, a passionate developer exploring new challenges.</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slider_info-top">
+                                            <p class="slider_tagline">Projects</p>
+                                            <div class="slider_title">
+                                                <p class="slider_title-text">My Projects</p>
+                                            </div>
+                                        </div>
+                                        <div class="slider_info-middle">
+                                            <p class="slider_info-text">Here are some of the projects I've worked on, showcasing my skills.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Slider (Images) -->
+                        <div class="slider_right">
+                            <div class="swiper is-photos">
+                                <div class="swiper-wrapper">
+                                    <!-- First Image -->
+                                    <div class="swiper-slide">
+                                        <img src="images/me.jpg" alt="Me" class="slider-image">
+                                    </div>
+                                    <!-- Second Image -->
+                                    <div class="swiper-slide">
+                                        <img src="images/test.png" alt="Test Image" class="slider-image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let photoSwiper = new Swiper(".swiper.is-photos", {
+                effect: "cards",
+                grabCursor: true,
+                loop: true,
+                keyboard: true,
+            });
+
+            let contentSwiper = new Swiper(".swiper.is-content", {
+                speed: 0,
+                loop: true,
+                followFinger: false,
+                effect: "fade",
+                fadeEffect: {
+                    crossFade: true
+                }
+            });
+
+            photoSwiper.controller.control = contentSwiper;
+            contentSwiper.controller.control = photoSwiper;
+
+            const sliderTexts = [
+                {
+                    title: "About Me",
+                    description: "This is me, a passionate developer exploring new challenges."
+                },
+                {
+                    title: "My Projects",
+                    description: "Here are some of the projects I've worked on, showcasing my skills."
+                }
+            ];
+
+            function updateText(index) {
+                document.querySelector(".slider_title-text").textContent = sliderTexts[index].title;
+                document.querySelector(".slider_info-text").textContent = sliderTexts[index].description;
+            }
+
+            updateText(photoSwiper.realIndex);
+
+            photoSwiper.on("slideChange", function () {
+                updateText(photoSwiper.realIndex);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
