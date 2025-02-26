@@ -291,6 +291,163 @@ ul {
 .example-2 .icon-content a[data-social="youtube"] ~ .tooltip {
     background-color: #ff0000;
 }
+/* ===== Services Section Title Fix (Perfect Centering) ===== */
+.services-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px; /* Adjusted spacing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Centering Services Section Vertically */
+.services-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers vertically */
+    align-items: center; /* Centers horizontally */
+    min-height: 100vh; /* Ensures it takes full height */
+    padding-top: 80px; /* Adjusts for fixed header */
+}
+
+/* ===== Services Container (Fixing Center Alignment & Equal Heights) ===== */
+/* ===== Services Container (Restrict Width & Centering) ===== */
+.services {
+    display: flex; /* Keeps items in a row */
+    flex-wrap: nowrap; /* Prevents wrapping to a new line */
+    gap: 20px; /* Adds space between services */
+    justify-content: center; /* Centers the services */
+    align-items: flex-start;
+    max-width: 900px; /* Restricts total width */
+    margin: auto;
+}
+
+
+/* ===== Individual Service Box (Prevents Being Too Wide) ===== */
+.service {
+    max-width: 350px; /* Restricts width */
+    width: 100%; /* Ensures it adapts properly */
+    background: #16213e;
+    padding: 30px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    cursor: pointer;
+}
+
+
+
+
+/* Hover Effect */
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon Styling */
+.service i {
+    font-size: 3rem;
+    color: #00bcd4;
+    margin-bottom: 15px;
+}
+
+/* Service Title */
+.service h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+/* Service Description */
+.service p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #b8c6db;
+    flex-grow: 1; /* Allows text to take up space evenly */
+}
+
+/* === Hidden Tools List (Reveals on Click) === */
+.tools-list {
+    list-style: none;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    display: none; /* Hidden by default */
+    text-align: left;
+}
+
+.tools-list li {
+    padding: 5px 0;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+/* When a service is clicked, reveal the tools */
+.service.active .tools-list {
+    display: block;
+}
+
+/* === Center API Development Service in Second Row === */
+.services .service:nth-child(3) {
+    grid-column: span 2; /* Takes up full width */
+    text-align: center;
+    max-width: 50%; /* Makes it look balanced */
+    margin: 0 auto; /* Centers it */
+}
+
+/* Ensures smooth toggle effect */
+.service-description,
+.tools-list {
+    display: none;
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+/* When active, smoothly expand */
+.service.active .service-description,
+.service.active .tools-list {
+    display: block;
+    opacity: 1;
+    max-height: 500px; /* Adjust this based on your content */
+}
+
+@media (max-width: 768px) {
+    .services {
+        flex-wrap: wrap; /* Allows stacking only on small screens */
+    }
+
+    .service {
+        max-width: 100%; /* Ensures full width on small screens */
+    }
+}
+
+/* === RESPONSIVE FIXES === */
+@media (max-width: 768px) {
+    .services {
+        grid-template-columns: 1fr; /* Single column layout */
+        padding: 40px 5%;
+    }
+
+    .services .service:nth-child(3) {
+        grid-column: span 1; /* Ensures correct layout on mobile */
+        max-width: 100%;
+    }
+}
+
+
+
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {
