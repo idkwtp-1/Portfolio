@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/styles.css">
 
-   
 </head>
 
 <body>
@@ -81,10 +80,10 @@
                                         </div>
                                         <div class="slider_info-middle">
                                             <p class="slider_info-text">
-                                                This project is a **recipe-sharing platform** that allows users to **browse, share, and manage recipes**.
-                                                Anyone can explore recipes without an account, but **registered users can create an account, log in, share their own recipes, and connect with others**.
-                                                The front-end is built with **HTML, CSS, and JavaScript** for a smooth user experience, while the back-end, powered by **Node.js**, handles authentication, recipe management, and interactions.
-                                                An **SQL database** securely stores user accounts, and recipes, ensuring seamless access and organization.
+                                                This project is a recipe-sharing platform that allows users to browse, share, and manage recipes.
+                                                Anyone can explore recipes without an account, but registered users can create an account, log in, share their own recipes, and connect with others.
+                                                The front-end is built with HTML, CSS, and JavaScript for a smooth user experience, while the back-end, powered by Node.js, handles authentication, recipe management, and interactions.
+                                                An SQL database securely stores user accounts, and recipes, ensuring seamless access and organization.
                                             </p>
                                         </div>
                                     </div>
@@ -98,14 +97,14 @@
                                 <div class="swiper-wrapper">
                                     <!-- First Image -->
                                     <div class="swiper-slide">
-                                        <img src="images/game.jpg" alt="Me" class="slider-image">
+                                        <img src="images/game.jpg"  class="slider-image">
                                     </div>
                                     <!-- Second Image -->
                                     <div class="swiper-slide">
-                                        <img src="images/library.png" alt="Test Image" class="slider-image">
+                                        <img src="images/library.png"  class="slider-image">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img src="images/.png" alt="Test Image" class="slider-image">
+                                        <img src="images/recipe.png"  class="slider-image">
                                     </div>
                                 </div>
                             </div>
@@ -141,28 +140,6 @@
 
             photoSwiper.controller.control = contentSwiper;
             contentSwiper.controller.control = photoSwiper;
-
-            const sliderTexts = [
-                {
-                    title: "About Me",
-                    description: "This is me, a passionate developer exploring new challenges."
-                },
-                {
-                    title: "My Projects",
-                    description: "Here are some of the projects I've worked on, showcasing my skills."
-                }
-            ];
-
-            function updateText(index) {
-                document.querySelector(".slider_title-text").textContent = sliderTexts[index].title;
-                document.querySelector(".slider_info-text").textContent = sliderTexts[index].description;
-            }
-
-            updateText(photoSwiper.realIndex);
-
-            photoSwiper.on("slideChange", function () {
-                updateText(photoSwiper.realIndex);
-            });
         });
     </script>
 
